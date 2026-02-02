@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager Pro™</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1>📋 Task Manager Pro™</h1>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+            
+            <!-- Task Statistics -->
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Total</span>
+                    <span class="stat-value" id="totalCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Pending</span>
+                    <span class="stat-value" id="pendingCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Completed</span>
+                    <span class="stat-value" id="completedCount">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Task Input Form -->
+        <section class="task-form-section">
+            <form id="taskForm" class="task-form">
+                <div class="form-row">
+                    <div class="form-group form-group-full">
+                        <input 
+                            type="text" 
+                            id="taskTitle" 
+                            class="form-input" 
+                            placeholder="What needs to be done?"
+                            required
+                            autocomplete="off"
+                        >
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <textarea 
+                            id="taskDescription" 
+                            class="form-input form-textarea" 
+                            placeholder="Description (optional)"
+                            rows="2"
+                        ></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-row form-row-split">
+                    <div class="form-group">
+                        <label for="taskDate" class="form-label">Due Date</label>
+                        <input 
+                            type="date" 
+                            id="taskDate" 
+                            class="form-input"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="taskPriority" class="form-label">Priority</label>
+                        <select id="taskPriority" class="form-input">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" id="submitBtn">
+                    <span id="submitBtnText">Add Task</span>
+                </button>
+            </form>
+        </section>
+
+        <!-- Filters and Sort Controls -->
+        <section class="controls">
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="pending">Pending</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+            
+            <div class="sort-group">
+                <label for="sortBy" class="sort-label">Sort by:</label>
+                <select id="sortBy" class="sort-select">
+                    <option value="date-asc">Due Date (Earliest)</option>
+                    <option value="date-desc">Due Date (Latest)</option>
+                    <option value="priority-high">Priority (High → Low)</option>
+                    <option value="priority-low">Priority (Low → High)</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Task List -->
+        <section class="task-list-section">
+            <div id="taskList" class="task-list">
+                <!-- Tasks will be dynamically inserted here -->
+            </div>
+            
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">📝</div>
+                <h3>No tasks yet</h3>
+                <p>Add your first task to get started!</p>
+            </div>
+        </section>
+        <footer style="text-align:center; margin-top:20px; font-size:13px; color:#888;">
+  © 2026 Arun — Free to use with attribution
+</footer>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
